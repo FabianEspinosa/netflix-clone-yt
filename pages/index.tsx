@@ -24,7 +24,7 @@ const Home = ({
   comedyMovies,
   horrorMovies,
   romanceMovies,
-  documentaries,
+  documentaries
 }: Props) => {
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
@@ -62,7 +62,7 @@ export const getServerSideProps = async () => {
     comedyMovies,
     horrorMovies,
     romanceMovies,
-    documentaries,
+    documentaries
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
@@ -71,7 +71,7 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchComedyMovies).then((res) => res.json()),
     fetch(requests.fetchHorrorMovies).then((res) => res.json()),
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
-    fetch(requests.fetchDocumentaries).then((res) => res.json()),
+    fetch(requests.fetchDocumentaries).then((res) => res.json())
   ])
 
   return {
@@ -83,7 +83,7 @@ export const getServerSideProps = async () => {
       comedyMovies: comedyMovies.results,
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
-      documentaries: documentaries.results,
-    },
+      documentaries: documentaries.results
+    }
   }
 }
